@@ -1,5 +1,5 @@
 resource "aws_vpc" "default" {
-  cidr_block                       = "10.${var.cidr_numeral}.0.0/16"
+  cidr_block = "10.${var.cidr_numeral}.0.0/16"
   # region = var.vpc_region
 
   tags = {
@@ -19,8 +19,8 @@ resource "aws_subnet" "public" {
   count  = length(var.availability_zones)
   vpc_id = aws_vpc.default.id
 
-  cidr_block              = "10.${var.cidr_numeral}.${var.cidr_numeral_public[count.index]}.0/20"
-  availability_zone       = element(var.availability_zones, count.index)
+  cidr_block        = "10.${var.cidr_numeral}.${var.cidr_numeral_public[count.index]}.0/20"
+  availability_zone = element(var.availability_zones, count.index)
 
   tags = {
     Name = "public${count.index}-${var.vpc_name}"

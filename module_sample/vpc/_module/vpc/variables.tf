@@ -14,7 +14,7 @@ variable "availability_zones" {
 }
 
 variable "cidr_numeral_public" {
-  type = map(string)
+  type        = map(string)
   description = ""
   default = {
     "0" = "0"
