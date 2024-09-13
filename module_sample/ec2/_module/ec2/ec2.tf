@@ -58,7 +58,7 @@ resource "aws_instance" "foo" {
   vpc_security_group_ids      = [aws_security_group.foo.id]
   ebs_optimized               = true
   #user_data_replace_on_change = false
-  user_data                   = "${file("./userdata.sh.tpl")}"
+  #user_data                   = "${file("./userdata.sh.tpl")}"  # need to check
 
   root_block_device {
     # only used for OS and linux packages
